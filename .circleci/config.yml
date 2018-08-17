@@ -1,13 +1,8 @@
 version: 2
-jobs:
-  build:
-    docker:
-      - image: debian:stretch
-    steps:
-      - checkout
-      - run:
-          name: Greeting
-          command: echo Hello, world.
-      - run:
-          name: Print the Current Time
-          command: date
+jobs: 
+ build:
+   docker: 
+     - image: circleci/python:3.6.2-stretch-browsers
+   steps:
+     - checkout
+     - run: pip install -r requirements/dev.txt
