@@ -13,4 +13,8 @@ jobs:
           POSTGRES_PASSWORD: ""
    steps:
      - checkout
-     - run: pip install -r requirements/dev.txt
+     - run: 
+         name: Install Python deps in venv
+         command: |
+           python3 -m venv venv . venv/bin/activate
+           pip install -r requirements/dev.txt
